@@ -1,4 +1,4 @@
-import { use } from 'react';
+import { use, useState } from 'react';
 import type { TechnologyType } from '../../types/TechnologyType';
 import Technology from './Technology';
 import Stack from './Stack';
@@ -9,6 +9,7 @@ interface TechnologiesProps {
 
 const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
     const technologies = use(technologiesPromise)
+    const [stacks, setStacks] = useState<TechnologyType[]>([])
     return (
         <div className="container mx-auto my-10 space-y-2 px-2 lg:px-0">
             <div>
@@ -19,12 +20,12 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:col-span-3'>
                     {
                         technologies.map((technology: TechnologyType) => {
-                            return <Technology key={technology.id} technology={technology} />
+                            return <Technology key={technology.id} technology={technology} stacks={stacks} setStacks={setStacks}/>
                         })
                     }
                 </div>
                 <div>
-                    <Stack></Stack>
+                    <Stack stacks={stacks} setStacks={setStacks}></Stack>
                 </div>
 
             </div>
