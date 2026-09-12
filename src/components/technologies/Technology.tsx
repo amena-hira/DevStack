@@ -2,21 +2,26 @@ import { FaStar } from "react-icons/fa";
 import type { TechnologyType } from "../../types/TechnologyType";
 import type { Dispatch, SetStateAction } from "react";
 import { toast } from "react-toastify";
+import { IoMdCheckmark } from "react-icons/io";
 
-interface technologyProps{
+interface technologyProps {
     technology: TechnologyType,
     stacks: TechnologyType[]
     setStacks: Dispatch<SetStateAction<TechnologyType[]>>
 }
 
-const Technology = ({ technology, stacks, setStacks}: technologyProps) => {
-    const handleSetStack = () =>{
-        toast.success(`${technology.name} is on the stack.`)
+const Technology = ({ technology, stacks, setStacks }: technologyProps) => {
+    const isSelected = stacks.some(item => item.id === technology.id)
+    const handleSetStack = () => {
+        if (isSelected) {
+            toast.error(`${technology.name} is already added!`)
+            return;
+        }
         setStacks((prevStacks) => [...prevStacks, technology])
-        console.log(stacks)
+        toast.success(`${technology.name} is on the stack.`)
     }
     return (
-        <div className="card bg-base-100 shadow-sm border-[#F1F5F9]">
+        <div className={`card bg-base-100 shadow-sm border ${isSelected ? "border-[#DB2777]" : "border-[#F1F5F9]"}`}>
             <div className="card-body">
                 <div className="flex justify-between">
                     <img src={technology.icon} alt={technology.name} className="w-10 h-10" />
@@ -35,7 +40,23 @@ const Technology = ({ technology, stacks, setStacks}: technologyProps) => {
                         <span className="text-[#334155]">{technology.rating}</span>
                     </div>
                 </div>
-                <button onClick={()=>handleSetStack()} className="btn btn-block rounded-lg bg-black text-white">Add to Stack</button>
+                {isSelected ? (
+                    <button
+                        className="btn btn-block rounded-lg bg-[#DB2777]/10 text-[#DB2777] flex items-center"
+                        disabled
+                    >
+                        <IoMdCheckmark />
+                        Added to Stack
+                    </button>
+                ) : (
+                    <button
+                        onClick={handleSetStack}
+                        className="btn btn-block rounded-lg bg-black text-white"
+                    >
+                        Add to Stack
+                    </button>
+                )}
+
             </div>
         </div>
     );

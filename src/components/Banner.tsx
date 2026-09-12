@@ -16,11 +16,11 @@ const Banner = () => {
                         next project.
                     </p>
                     <div className="flex flex-row gap-3">
-                        <button className="btn flex-1 lg:flex-none lg:w-48 background-linear-gradient text-white border-0">
+                        <button className="btn flex-1 lg:flex-none lg:w-48 background-linear-gradient text-white border-0 text-xs lg:text-sm rounded-xl">
                             Explore Technologies
                         </button>
 
-                        <button className="btn btn-outline flex-1 border-[#e5e7eb] text-[#374151] lg:flex-none lg:w-48">
+                        <button className="btn btn-outline flex-1 border-[#e5e7eb] text-[#374151] lg:flex-none lg:w-48 text-xs lg:text-sm rounded-xl">
                             Learn More
                         </button>
                     </div>
