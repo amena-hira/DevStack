@@ -4,6 +4,10 @@
 
 @theme {
     --color-devstack-primary: #db2777FF;
+    --gradient-brand: linear-gradient(to right,
+            rgba(255, 87, 34, 1) 0%,
+            rgba(216, 27, 126, 1) 40%,
+            rgba(124, 58, 237, 1) 100%);
 }
 
 * {
@@ -11,12 +15,13 @@
 }
 
 .text-linear-gradient {
-    background-image: linear-gradient(to right, rgba(255, 87, 34, 1) 0%,rgba(216, 27, 126, 1) 50%,rgba(124, 58, 237, 1) 100%);
+    background-image: var(--gradient-brand);
     color: transparent;
     background-clip: text;
 
 }
 
 .background-linear-gradient {
-    background: linear-gradient(to right, rgba(249, 115, 22, 1) 0%,rgba(236, 72, 153, 1) 100%); 
+    /* background: linear-gradient(to right, rgba(249, 115, 22, 1) 0%, rgba(236, 72, 153, 1) 100%); */
+    background: var(--gradient-brand)
 }
