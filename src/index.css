@@ -2,13 +2,21 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-@theme{
+@theme {
     --color-devstack-primary: #db2777FF;
 }
 
-*{
+* {
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
-.active{
-    font--color: #db2777FF;
+
+.text-linear-gradient {
+    background-image: linear-gradient(to right, rgba(255, 87, 34, 1) 0%,rgba(216, 27, 126, 1) 50%,rgba(124, 58, 237, 1) 100%);
+    color: transparent;
+    background-clip: text;
+
+}
+
+.background-linear-gradient {
+    background: linear-gradient(to right, rgba(249, 115, 22, 1) 0%,rgba(236, 72, 153, 1) 100%); 
 }

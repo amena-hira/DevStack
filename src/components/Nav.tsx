@@ -50,8 +50,8 @@ const Nav = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn btn-sm btn-ghost">Sign In</a>
-          <a className="btn btn-sm bg-devstack-primary text-white hover:bg-devstack-primary/80 rounded-3xl">Sign Up</a>
+          <a className="btn btn-xs md:btn-sm btn-ghost">Sign In</a>
+          <a className="btn btn-xs md:btn-sm ml-1 bg-devstack-primary text-white hover:bg-devstack-primary/80 rounded-3xl">Sign Up</a>
         </div>
       </div>
     </div>
