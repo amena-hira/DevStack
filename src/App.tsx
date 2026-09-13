@@ -4,6 +4,7 @@ import Nav from "./components/Nav"
 import Technologies from "./components/technologies/Technologies";
 import Loading from "./utils/loading";
 import type { TechnologyType } from "./types/TechnologyType";
+import Footer from "./components/footer/Footer";
 
 const technologiesFetch = async (): Promise<TechnologyType[]> => {
   const response = await fetch('/data.json');
@@ -22,6 +23,8 @@ function App() {
         <Suspense fallback={<Loading/>}>
           <Technologies technologiesPromise={technologiesPromise} />
         </Suspense>
+        <div className="divider my-15"></div>
+        <Footer/>
       </div>
     </>
   )
