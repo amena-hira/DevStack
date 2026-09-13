@@ -1,6 +1,7 @@
 import type { Dispatch, SetStateAction } from "react";
 import type { TechnologyType } from "../../types/TechnologyType";
 import StackCard from "./StackCard";
+import { toast } from "react-toastify";
 
 interface stackProps {
     stacks: TechnologyType[],
@@ -8,6 +9,10 @@ interface stackProps {
 }
 
 const Stack = ({ stacks, setStacks }: stackProps) => {
+    const handleRemoveAll = () =>{
+        setStacks([]);
+        toast.error("Remove all items from Stack");
+    }
     return (
         <div className="card shadow-md">
             <div className="card-body">
@@ -24,7 +29,7 @@ const Stack = ({ stacks, setStacks }: stackProps) => {
                     }
 
                 </div>
-                <button onClick={() => setStacks([])} className="btn btn-block rounded-xl bg-white border-[#ED8C85] text-[#D82C20] hover:shadow-sm hover:shadow-[#ED8C85]">Remove All</button>
+                <button onClick={handleRemoveAll} className="btn btn-block rounded-xl bg-white border-[#ED8C85] text-[#D82C20] hover:shadow-sm hover:shadow-[#ED8C85]">Remove All</button>
             </div>
 
         </div>

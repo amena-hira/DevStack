@@ -1,6 +1,7 @@
 import { RxCross1 } from "react-icons/rx";
 import type { TechnologyType } from "../../types/TechnologyType";
 import type { Dispatch, SetStateAction } from "react";
+import { toast } from "react-toastify";
 
 interface stackCardProps {
     stack: TechnologyType,
@@ -9,6 +10,7 @@ interface stackCardProps {
 const StackCard = ({ stack, setStacks }: stackCardProps) => {
     const handleRemoveStacks = () =>{
         setStacks((prevStacks) => prevStacks.filter(s=> s.name !== stack.name))
+        toast.info(`${stack.name} is removed from the Stack!`)
     }
     return (
         <div className="flex justify-between items-center my-4 border border-[#E2E8F0] rounded-lg p-2.5">
